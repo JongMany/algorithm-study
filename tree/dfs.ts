@@ -1,28 +1,28 @@
 // Recursion Version
 
-import {TNode, Tree} from "./BinaryTree";
+import { TNode, Tree } from "./BinaryTree";
 
-function dfs(){
-
+function dfs() {
+  //
 }
 
 (() => {
   // Tree Generation
   const tree = new Tree<string>();
-  tree.root = new TNode('A');
-  if(tree.root) {
-    tree.root.left = new TNode('B')
-    tree.root.right = new TNode('C');
-    if(tree.root.left) {
-      tree.root.left.left = new TNode('D');
-      tree.root.left.right = new TNode<string>('E');
-      if(tree.root.left.left) {
-        tree.root.left.left.left = new TNode<string>('G');
-        tree.root.left.left.right = new TNode<string>('H');
+  tree.root = new TNode("A");
+  if (tree.root) {
+    tree.root.left = new TNode("B");
+    tree.root.right = new TNode("C");
+    if (tree.root.left) {
+      tree.root.left.left = new TNode("D");
+      tree.root.left.right = new TNode<string>("E");
+      if (tree.root.left.left) {
+        tree.root.left.left.left = new TNode<string>("G");
+        tree.root.left.left.right = new TNode<string>("H");
       }
     }
     if (tree.root.right) {
-      tree.root.right.right = new TNode<string>('F');
+      tree.root.right.right = new TNode<string>("F");
     }
   }
 
@@ -30,10 +30,13 @@ function dfs(){
   // PreOrder는 방문 순서가 부모 -> 왼쪽 -> 오른쪽 순임
   // InOrder는 방문 순서가 왼쪽 -> 부모 -> 오른쪽 순임
   // PostOrder는 방문순서가 왼쪽 -> 오른쪽 -> 부모 순임
-  function dfs_solution(tree:Tree<unknown>, option: "in"|"pre"|"post" = "pre") {
+  function dfs_solution(
+    tree: Tree<unknown>,
+    option: "in" | "pre" | "post" = "pre"
+  ) {
     const visited: unknown[] = [];
-    function preOrderDFS(currentNode: TNode<unknown>|null) {
-      if(currentNode === null) {
+    function preOrderDFS(currentNode: TNode<unknown> | null) {
+      if (currentNode === null) {
         return;
       }
 
@@ -42,8 +45,8 @@ function dfs(){
       preOrderDFS(currentNode.right);
     }
 
-    function inOrderDFS(currentNode: TNode<unknown>|null) {
-      if(currentNode === null) {
+    function inOrderDFS(currentNode: TNode<unknown> | null) {
+      if (currentNode === null) {
         return;
       }
 
@@ -52,8 +55,8 @@ function dfs(){
       inOrderDFS(currentNode.right);
     }
 
-    function postOrderDFS(currentNode: TNode<unknown>|null) {
-      if(currentNode === null) {
+    function postOrderDFS(currentNode: TNode<unknown> | null) {
+      if (currentNode === null) {
         return;
       }
 
@@ -79,10 +82,6 @@ function dfs(){
   }
 
   // console.log(dfs_solution(tree, "pre"))
-  console.log(dfs_solution(tree, "in"))
+  console.log(dfs_solution(tree, "in"));
   // console.log(dfs_solution(tree, "post"))
-
-
-
-
-})()
+})();
