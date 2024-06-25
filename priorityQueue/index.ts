@@ -1,3 +1,5 @@
+// https://github.com/ndb796/priorityqueuejs/blob/master/index.js
+// https://github.com/datastructures-js/priority-queue/blob/master/src/priorityQueue.js
 type Comparator<T> = (a: T, b: T) => number;
 interface IPriorityQueue<T> {
   isEmpty(): boolean;
